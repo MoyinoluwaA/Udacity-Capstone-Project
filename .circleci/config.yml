@@ -54,8 +54,7 @@ jobs:
       - checkout
       - aws-ecr/build_and_push_image:
           auth:
-            - aws-cli/setup:
-                role_arn: arn:aws:iam::703318274498
+            - aws-cli/setup
           repo: "${ECR_REPOSITORY_NAME}"
           tag: "${CIRCLE_SHA1}"
           extra_build_args: |
