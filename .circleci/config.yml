@@ -61,7 +61,7 @@ jobs:
           repo: "${ECR_REPOSITORY_NAME}"
           tag: "${CIRCLE_SHA1}"
           extra_build_args: |
-            DATABASE_URL=${DATABASE_URL}
+            --build-arg DATABASE_URL=${DATABASE_URL}
         
 workflows:
   default:
