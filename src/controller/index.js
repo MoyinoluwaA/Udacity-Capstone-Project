@@ -1,9 +1,5 @@
 const { addBlog, fetchAllBlogs, updateBlogById, deleteBlogById } = require('../services')
 
-// Adding date
-const nowDate = new Date()
-const date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate()
-
 // Creating a blog
 const createBlog = async(req, res, next) => {
     try {
@@ -38,7 +34,7 @@ const getBlogs = async(req, res, next) => {
     }
 }
 
-const getBlog = async(req, res) => {
+const getBlog = async(req, res, next) => {
     try {
         const { blog, id } = req
 
