@@ -6,7 +6,7 @@ orbs:
 parameters:
   - name: extra_build_args
     displayName: "Docker Registry Service Connection"
-    type: string
+    type: object
     default: |
       --build-arg DATABASE_URL=$(DATABASE_URL)
 
