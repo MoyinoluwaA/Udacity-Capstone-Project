@@ -3,13 +3,6 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@9.0.0
 
-parameters:
-  - name: extra_build_args
-    displayName: "Docker Registry Service Connection"
-    type: object
-    default: |
-      --build-arg DATABASE_URL=$(DATABASE_URL)
-
 jobs:
   lint:
     docker:
@@ -62,7 +55,8 @@ jobs:
           name: Build and push image
           repo: "${ECR_REPOSITORY_NAME}"
           tag: "${CIRCLE_SHA1}"
-          extra_build_args: <<parameters.extra_build_args>>
+          extra_build_args: |
+            DATABASE_URL=${DATABASE_URL}
         
 workflows:
   default:
