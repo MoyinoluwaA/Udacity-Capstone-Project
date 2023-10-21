@@ -52,6 +52,9 @@ jobs:
       - image: cimg/node:16.18.1
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
       - aws-ecr/build_and_push_image:
           auth:
             - aws-cli/setup
