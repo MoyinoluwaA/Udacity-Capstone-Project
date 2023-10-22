@@ -1,0 +1,14 @@
+[
+    {
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityBlog"
+	},
+    {
+		"ParameterKey": "SSHKeyName",
+		"ParameterValue": "blog"
+	},
+    {
+		"ParameterKey": "amiImageId",
+		"ParameterValue": "ami-0fc5d935ebf8bc3bc"
+	}
+]
