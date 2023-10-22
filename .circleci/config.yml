@@ -220,23 +220,25 @@ workflows:
   default:
     jobs:
       - lint
-      - test:
-          requires: [lint]
-      - scan:
-          requires: [test]
+      - test
+      - scan
       - build-and-push-image:
-          requires: [scan]
+          requires: 
+            - lint
+            - test
+            - scan
       - deploy-infrastructure:
           filters:
             branches:
               only: [ master ]
+          requires: 
+            - build-and-push-image
       - configure-infrastructure:
           requires:
             - deploy-infrastructure
       - configure-cluster:
           requires:
             - configure-infrastructure
-            - build-and-push-image
       - deploy-app:
           requires:
             - configure-cluster
