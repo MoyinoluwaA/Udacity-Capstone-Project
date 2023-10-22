@@ -119,7 +119,7 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: python:3.11.5-alpine3.18
     steps:
       - checkout
       - add_ssh_keys:
@@ -146,7 +146,7 @@ jobs:
 
   configure-cluster:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: python:3.11.5-alpine3.18
     steps:
       - checkout
       - add_ssh_keys:
@@ -196,7 +196,7 @@ jobs:
 
   deploy-app:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: python:3.11.5-alpine3.18
     steps:
       - checkout
       - add_ssh_keys:
