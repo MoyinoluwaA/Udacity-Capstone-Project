@@ -13,7 +13,6 @@
 
   roles:
     - install-dependencies
-    - install-kubectl
 
 - name: "Authenticate AWS CLI with AWS"
   hosts: management
