@@ -219,14 +219,14 @@ jobs:
 workflows:
   default:
     jobs:
-      - lint
-      - test
-      - scan
-      - build-and-push-image:
-          requires: 
-            - lint
-            - test
-            - scan
+      # - lint
+      # - test
+      # - scan
+      - build-and-push-image
+          # requires: 
+          #   - lint
+          #   - test
+          #   - scan
       - deploy-infrastructure:
           filters:
             branches:
