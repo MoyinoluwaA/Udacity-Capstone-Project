@@ -12,8 +12,18 @@
       args:
         chdir: $HOME
 
+    - name: Wait for pods to start running
+      wait_for:
+        delay: 60
+        timeout: 120
+
     - name: Check Pods
       shell: "./bin/kubectl get pods"
+      args:
+        chdir: $HOME
+    
+    - name: Check services
+      shell: "./bin/kubectl get services"
       args:
         chdir: $HOME
 
