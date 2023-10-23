@@ -20,13 +20,25 @@
       shell: "./bin/kubectl get pods"
       args:
         chdir: $HOME
+      register: get-pods
+    
+    - debug:
+        var: get-pods.stdout_lines
     
     - name: Check services
       shell: "./bin/kubectl get services"
       args:
         chdir: $HOME
+      register: get-services
+      
+    - debug:
+        var: get-services.stdout_lines
 
     - name: Check if deployment is successful
       shell: "./bin/kubectl rollout status deployments/{{ ENVIRONMENT_NAME }}-deployment"
       args:
         chdir: $HOME
+      register: check-deployment-status
+      
+    - debug:
+        var: check-deployment-status.stdout_lines
