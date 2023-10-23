@@ -159,29 +159,29 @@ jobs:
           command: |
             apk add --update ansible
       - run:
-          name: Configure server
+          name: Configure cluster
           command: |
-            # if grep -q "No changes to deploy" ~/checkIfDeployed.txt
-            #   then
-            #     cat ~/inventory.txt
-            #     echo "Our management instances are already configured."
-            #   else
+            if grep -q "No changes to deploy" ~/checkIfDeployed.txt
+              then
+                cat ~/inventory.txt
+                echo "Our management instances are already configured."
+              else
                 cat ~/inventory.txt
                 cd .circleci/ansible
                 ansible-playbook -i ~/inventory.txt configure-cluster.yml -vvv
-              # fi
+              fi
       - run:
           name: Wait for LoadBalancer's domain to become reachable
           command: |
-            # if grep -q "No changes to deploy" ~/checkIfDeployed.txt
-            #   then
-              #   cat ~/inventory.txt
-              #   echo "Our management instances are already configured."
-              # else
+            if grep -q "No changes to deploy" ~/checkIfDeployed.txt
+              then
+                cat ~/inventory.txt
+                echo "Our management instances are already configured."
+              else
                 cat ~/inventory.txt
                 echo "Wait 60 seconds..."
                 sleep 60
-              # fi
+              fi
       - run:
           name: Display the LoadBalancer's DNS name
           command: |

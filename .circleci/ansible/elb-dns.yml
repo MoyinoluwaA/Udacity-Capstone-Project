@@ -4,11 +4,10 @@
   user: ubuntu
   gather_facts: false
   become: yes
-  vars:
-    ENVIRONMENT_NAME: "{{ lookup('env', 'ENVIRONMENT_NAME') }}"
+ 
   tasks:
     - name: Get the LoadBalancer's DNS name
-      shell: "./bin/kubectl get svc blog-service"
+      shell: "./bin/kubectl get svc udacity-blog-service"
       register: elb_dns
       args:
         chdir: $HOME
