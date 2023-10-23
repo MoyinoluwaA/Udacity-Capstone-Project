@@ -12,6 +12,11 @@
       args:
         chdir: $HOME
 
+    - name: Check Pods
+      shell: "./bin/kubectl get pods"
+      args:
+        chdir: $HOME
+
     - name: Check if deployment is successful
       shell: "./bin/kubectl rollout status deployments/{{ ENVIRONMENT_NAME }}-deployment"
       args:
