@@ -14,8 +14,7 @@
 
     - name: Wait for pods to start running
       wait_for:
-        delay: 60
-        timeout: 120
+        timeout: 30
 
     - name: Check Pods
       shell: "./bin/kubectl get pods"
